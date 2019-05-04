@@ -26,7 +26,7 @@ RESPONSE:
 	"school_year":"string",
 	"province":"string",
 	"city":"string",
-	"genre":"string"
+	"gender":"string"
 }
 
 RESPONSE:
