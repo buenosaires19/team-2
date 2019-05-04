@@ -20,6 +20,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <script>
+      // Attach a submit handler to the form
+      $( "#testButton" ).submit(function( event ) {
+       
+        // Stop form from submitting normally
+        event.preventDefault();
+        // Send the data using post
+        var posting = $.post( "/login", "");
+       
+      });
+      </script>
+
     <form>
 
   <div class="form-group">
@@ -78,8 +90,11 @@
     <label class="form-check-label" for="exampleCheck1">Acepto los términos y condiciones.</label>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button id= "testButton" type="submit" class="btn btn-primary">Test call</button>
 </form>
 </div>
+
+
+
   </body>
 </html>

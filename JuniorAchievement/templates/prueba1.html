@@ -7,20 +7,35 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>Bienvenido!</title>
-  </head>
-  <body>
-  	<div class="mx-auto" style="width: 50%;">
-    <h1>Bienvenido a esta aventura! Primero armemos tu usuario...</h1>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <form>
+    <title>Bienvenido!</title>
+    <script>
+      // Attach a submit handler to the form
+      $('#submitForm').submit(
+     // $('#testButton').click(
+        function( event ) {
+       
+        // Stop form from submitting normally
+        event.preventDefault();
+        // Send the data using post
+        var posting = $.post( "/login", "sdffjhfdhsf");
+        console.log(event);
+      });
+      </script>
+  </head>
+  <body>
+  	<div class="mx-auto" style="width: 50%;">
+    <h1>Bienvenido a esta aventura! Primero armemos tu usuario...</h1>
+
+
+
+
+    <form  method="POST" id="submitForm">
 
   <div class="form-group">
     <label for="exampleInputEmail1">Email</label>
@@ -42,12 +57,12 @@
   
 <div class="form-row">
     <div class="col-md-4 mb-3">
-      <label for="validationDefault01">Nombre</label>
-      <input type="text" class="form-control" id="validationDefault01" placeholder="Ingresá tu nombre/s" value="Mark" required>
+      <label for="Name">Nombre</label>
+      <input type="text" class="form-control" id="Name" placeholder="Ingresá tu nombre/s" value="Mark" required>
     </div>
     <div class="col-md-4 mb-3">
-      <label for="validationDefault02">Apellido</label>
-      <input type="text" class="form-control" id="validationDefault02" placeholder="Ingresá tu apellido/s" value="Otto" required>
+      <label for="Lastname">Apellido</label>
+      <input type="text" class="form-control" id="Lastname" placeholder="Ingresá tu apellido/s" value="Otto" required>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefaultUsername">Nombre de Usuario</label>
@@ -78,8 +93,11 @@
     <label class="form-check-label" for="exampleCheck1">Acepto los términos y condiciones.</label>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button id= "testButton" type="submit" class="btn btn-primary">Test call</button>
 </form>
 </div>
+
+
+
   </body>
 </html>
