@@ -6,7 +6,7 @@ class DBContext():
         self.conn = sqlite3.connect(db)
         self.cursor = self.conn.cursor()
 
-    def add_user(self, form, fields=['user_name', 'password', 'name', 'birthdate', 'email']):
+    def add_user(self, form, fields=['user_name', 'password', 'name', 'birthdate', 'email', 'city', 'province', 'school', 'school_year']):
         self.cursor.execute("INSERT INTO user ("+', '.join(fields)+") VALUES ('"+"', '".join([form[f] for f in fields])+"')")
         self.conn.commit()
 
