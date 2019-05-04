@@ -14,6 +14,10 @@ def signup():
     return render_template('prueba1.html')
 
 
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    return request.form
+
 @app.route('/main')
 def main():
     return render_template('main.html')
