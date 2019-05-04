@@ -1,0 +1,54 @@
+### POST: /Answer
+
+{
+	"question_id": "string",
+	"user_id": "string",
+	"answer":"string"
+}
+
+RESPONSE:
+{
+	"question_id": "string",
+	"user_id": "string",
+	"answer":"string",
+	"answer_id":"string"
+}
+
+### POST: /user
+
+{
+	"user_name": "string",
+	"password": "string",
+	"name":"string",
+	"birthdate":"date",
+	"email":"string"
+}
+
+RESPONSE:
+{
+	"user_name": "string",
+	"password": "string",
+	"name":"string",
+	"birthdate":"date",
+	"email":"string",
+	"user_id":"string"
+}
+
+### PUT :/User/<id>
+{
+	"user_name": "string",
+	"password": "string",
+	"name":"string",
+	"birthdate":"date",
+	"email":"string"
+}
+
+### PUT :/User/<id>/password
+{
+	"password": "string"
+}
+
+RESPONSE: 
+{
+	"password": "string"
+}
