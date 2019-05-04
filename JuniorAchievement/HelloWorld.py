@@ -16,6 +16,10 @@ def pepe():
 def main():
     return render_template('main.html')
 
+@app.route('/signup')
+def signup():
+    return render_template('prueba1.html')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
