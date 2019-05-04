@@ -32,18 +32,19 @@ def show_the_login_form():
 
 def do_the_login():
     error = None
-    a = DBContext()
+    db = DBContext()
     if request.method == 'POST':
-        if valid_login(request.form['user_name'],
-                       request.form['password']):
-            return str(a.get_user(request.form, ['user_name', 'password']))
+        if valid_login(db, request.form):
+            result = db.get_user(request.form, ['user_name', 'password'])
+            return str(result)
         else:
-            error = 'Invalid username/password'
+            return 'Invalid username/password'
 
     return render_template('login.html', error=error)
 
-def valid_login(x, y):
-    return jsonify(x) and y
+def valid_login(db, form):
+    result = db.get_user(form, ['user_name', 'password'])
+    return True if result else False
 
 def log_the_user_in(x):
     return jsonify(x)
