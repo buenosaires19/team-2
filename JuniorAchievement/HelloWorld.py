@@ -29,9 +29,9 @@ def do_the_signup():
     db.conn.close()
     return redirect('/login')
 
-@app.route('/test', methods=['GET', 'POST'])
+@app.route('/test_vocacional', methods=['GET', 'POST'])
 def test():
-    return render_template('main.html')
+    return render_template('testvocacional.html')
 
 @app.route('/main')
 def main():
