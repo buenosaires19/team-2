@@ -21,7 +21,12 @@ RESPONSE:
 	"password": "string",
 	"name":"string",
 	"birthdate":"date",
-	"email":"string"
+	"email":"string",
+	"school":"string",
+	"school_year":"string",
+	"province":"string",
+	"city":"string",
+	"genre":"string"
 }
 
 RESPONSE:
@@ -31,7 +36,12 @@ RESPONSE:
 	"name":"string",
 	"birthdate":"date",
 	"email":"string",
-	"user_id":"string"
+	"user_id":"string",
+	"school":"string",
+	"school_year":"string",
+	"province":"string",
+	"city":"string",
+	"genre":"string"
 }
 
 ### PUT :/User/<id>
@@ -40,7 +50,12 @@ RESPONSE:
 	"password": "string",
 	"name":"string",
 	"birthdate":"date",
-	"email":"string"
+	"email":"string",
+	"school":"string",
+	"school_year":"string",
+	"province":"string",
+	"city":"string",
+	"genre":"string"
 }
 
 ### PUT :/User/<id>/password
