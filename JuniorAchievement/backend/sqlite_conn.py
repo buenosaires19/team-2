@@ -9,6 +9,7 @@ class DBContext():
     def add_user(self, form, fields=['user_name', 'password', 'name', 'birthdate', 'email']):
         self.cursor.execute("INSERT INTO user ("+', '.join(fields)+") VALUES ('"+"', '".join([form[f] for f in fields])+"')")
         self.conn.commit()
+
         self.cursor.execute("SELECT user_id, "+", ".join(fields)+" FROM user WHERE "+" AND ".join([f+"='"+form[f]+"'" for f in fields]))
         result={'user_id': self.cursor.fetchone()[0]}
         for i in range(len(fields)):
@@ -16,7 +17,9 @@ class DBContext():
         return result
 
 
-    def get_user(self, user_name, password, fields=['user_id', 'user_name', 'password', 'name', 'birthdate', 'email']):
+    def get_user(self, auth, fields=['user_id', 'user_name', 'password', 'name', 'birthdate', 'email']):
+        user_name=auth['user_name']
+        password=auth['password']
         self.cursor.execute("SELECT "+", ".join(fields)+" FROM user WHERE user_name='{user_name}' AND password='{password}'".format(user_name=user_name, password=password))
         result=dict()
         res = self.cursor.fetchone()
