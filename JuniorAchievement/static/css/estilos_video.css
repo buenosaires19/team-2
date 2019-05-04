@@ -1,0 +1,12 @@
+.container{
+    marging:center;
+}
+
+.video{
+    display: inline;
+}
+
+.fila{
+    display: block;
+    float: left;
+}

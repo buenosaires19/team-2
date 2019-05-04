@@ -42,6 +42,10 @@ def main():
 def index():
     return render_template('index.html')
 
+@app.route('/videos', methods=['GET', 'POST'])
+def videos():
+    return render_template('Videos.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
