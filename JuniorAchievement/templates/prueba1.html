@@ -32,7 +32,7 @@
 
 
 
-    <form method="POST" id="submitForm" action="http://127.0.0.1:5000/test">
+    <form method="POST" id="submitForm" action="http://127.0.0.1:5000/signup">
 
       <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
@@ -57,20 +57,27 @@
       <div class="form-row">
         <div class="col-md-4 mb-3">
           <label for="Name">Nombre</label>
-          <input type="text" class="form-control" id="Name" placeholder="Ingresá tu nombre/s" value="Mark" required>
+          <input type="text" class="form-control" id="Name" placeholder="Ingresá tu nombre/s" value="Mark" name="name" required>
         </div>
         <div class="col-md-4 mb-3">
           <label for="Lastname">Apellido</label>
-          <input type="text" class="form-control" id="Lastname" placeholder="Ingresá tu apellido/s" value="Otto"
+          <input type="text" class="form-control" id="Lastname" placeholder="Ingresá tu apellido/s" name="name" value="Otto"
             required>
         </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="Birthday">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="Birthday" name="birthdate" placeholder="Ingresá tu fecha de nacimiento separadas por /" 
+              required>
+          </div>
+
         <div class="col-md-4 mb-3">
           <label for="validationDefaultUsername">Nombre de Usuario</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroupPrepend2">@</span>
             </div>
-            <input type="text" class="form-control" id="validationDefaultUsername"
+            <input type="text" class="form-control" id="validationDefaultUsername" name="user_name"
               placeholder="Ingresá tu nombre de usuario" aria-describedby="inputGroupPrepend2" required>
           </div>
         </div>
@@ -78,18 +85,30 @@
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label for="validationDefault03">Localidad</label>
-          <input type="text" class="form-control" id="validationDefault03" name="city" placeholder="Ingresá tu localidad" required>
+          <input type="text" class="form-control" id="validationDefault03" name="city" value="CABA" placeholder="Ingresá tu localidad" required>
         </div>
         <div class="col-md-3 mb-3">
           <label for="validationDefault04">Provincia</label>
-          <input type="text" class="form-control" id="validationDefault04" name="province" placeholder="Ingresá tu provincia" required>
+          <input type="text" class="form-control" id="validationDefault04" name="province" value="CABA" placeholder="Ingresá tu provincia" required>
         </div>
         <div class="col-md-3 mb-3">
           <label for="validationDefault05">Código postal</label>
-          <input type="text" class="form-control" id="validationDefault05" name="zipcode" placeholder="Ingresá tu código postal"
+          <input type="text" class="form-control" id="validationDefault05" name="zipcode" value="1000" placeholder="Ingresá tu código postal"
             required>
         </div>
       </div>
+
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault03">Escuela</label>
+          <input type="text" class="form-control" id="validationDefault03" name="school" value="FIUBA" placeholder="Ingresá tu Escuela" required>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationDefault04">Año</label>
+          <input type="text" class="form-control" id="validationDefault04" name="school_year" value="0" placeholder="Ingresá tu año" required>
+        </div>
+      </div>
+
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Acepto los términos y condiciones.</label>
@@ -110,7 +129,7 @@
       $('#testButton').click( function() {
         console.log('dfsdgdfg');
     $.ajax({
-        url: 'http://127.0.0.1:5000/test',
+        url: 'http://127.0.0.1:5000/signup',
         type: 'post',
         dataType: 'json',
         data: $('form#submitForm').serialize(),

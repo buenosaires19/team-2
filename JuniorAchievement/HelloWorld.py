@@ -1,7 +1,7 @@
 
 from flask import Flask, render_template, request, jsonify
 from backend.sqlite_conn import *
-
+import copy
 app = Flask(__name__)
 
 
@@ -9,14 +9,30 @@ app = Flask(__name__)
 def hello():
     return "Hello World!"
 
-@app.route("/signup")
+@app.route("/signup", methods=['GET', 'POST'])
 def signup():
-    return render_template('prueba1.html')
+    if request.method == 'POST':
+        return do_the_signup()
+#    elif request.method == 'GET':
+#        return get_user(id)
+    else:
+        return show_the_signup_form()
 
+def show_the_signup_form():
+	return render_template('prueba1.html')
+
+def do_the_signup():
+    error = None
+    db = DBContext()
+    if request.method == 'POST':
+        result = db.add_user(request.form)
+        return str(result)
+
+    return render_template('login.html', error=error)
 
 @app.route('/test', methods=['GET', 'POST'])
 def test():
-    return request.form
+    return render_template('main.html')
 
 @app.route('/main')
 def main():
@@ -39,11 +55,10 @@ def do_the_login():
     db = DBContext()
     if request.method == 'POST':
         if valid_login(db, request.form):
-            result = db.get_user(request.form, ['user_name', 'password'])
+            result = db.get_user(request.form)
             return str(result)
         else:
             return 'Invalid username/password'
-
     return render_template('login.html', error=error)
 
 def valid_login(db, form):
