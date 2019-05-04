@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title> Junior Achivement </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+          <script src="static/js/map.js"></script>
+          <script type="text/javascript">
+              
+function SiguientePregunta()
+{
+    $('#exampleModalScrollable').modal('hide');
+    $('#exampleModalScrollable2').modal('show');
+    console.log('NEXT')
+}
+          </script>
+        <link rel="stylesheet" type="text/css" href="static/css/estilos.css"/>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>  MY JOURNEY
+            </h1>
+        </header>
+
+         
+        <div class="row mapa" 
+            style="height: 500px; background:transparent url('static/img/map.png') no-repeat center center /cover">
+            <div class="col-md-6 col-lg-2">   
+                <button type="button" class="button1" data-toggle="modal" data-target="#exampleModalScrollable">Preguntas</button>        
+            </div>
+            <div class="col-md-6 col-lg-2">
+                <button type="button" class="button1">Registrate!</button>
+            </div>
+            <div class="col-md-6 col-lg-2">
+                <button type="button" class="button1">Q&A </button>
+            </div>
+            <div class="col-md-6 col-lg-2">
+                <button type="button" class="button1">Chat</button>
+            </div>
+            <div class="col-md-12 col-lg-2">
+                <button type="button" class="button1">Mentoreo</button>
+            </div>
+        </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalScrollableTitle">Test</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <div id="cbxRespuesta1"></div>
+
+
+          <div class="modal-footer">                               
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="SiguientePregunta()" >Aceptar</button>
+            <button type="button" class="btn btn-primary">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalScrollable2" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalScrollableTitle">Test</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <div id="cbxRespuesta2"></div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" >Aceptar</button>
+            <button type="button" class="btn btn-primary">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+        <section class="main">
+
+        </section>
+
+    </body>
+<html>
