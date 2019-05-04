@@ -9,9 +9,9 @@ app = Flask(__name__)
 def hello():
     return "Hello World!"
 
-@app.route("/pepe")
-def pepe():
-	return "Hola pepe"
+@app.route("/signup")
+def signup():
+    return render_template('prueba1.html')
 
 
 @app.route('/main')
