@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
 from backend.sqlite_conn import *
 import copy
 app = Flask(__name__)
@@ -13,6 +13,7 @@ def hello():
 def signup():
     if request.method == 'POST':
         return do_the_signup()
+
 #    elif request.method == 'GET':
 #        return get_user(id)
     else:
@@ -24,11 +25,9 @@ def show_the_signup_form():
 def do_the_signup():
     error = None
     db = DBContext()
-    if request.method == 'POST':
-        result = db.add_user(request.form)
-        return str(result)
-
-    return render_template('login.html', error=error)
+    result = db.add_user(request.form)
+    db.conn.close()
+    return redirect('/login')
 
 @app.route('/test', methods=['GET', 'POST'])
 def test():
@@ -37,6 +36,7 @@ def test():
 @app.route('/main')
 def main():
     return render_template('main.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -53,13 +53,13 @@ def show_the_login_form():
 def do_the_login():
     error = None
     db = DBContext()
-    if request.method == 'POST':
-        if valid_login(db, request.form):
-            result = db.get_user(request.form)
-            return str(result)
-        else:
-            return 'Invalid username/password'
-    return render_template('login.html', error=error)
+    if valid_login(db, request.form):
+        result = db.get_user(request.form)
+        db.conn.close()
+        #return str(result)
+    else:
+        return 'Invalid username/password'
+    return redirect('/main')
 
 def valid_login(db, form):
     result = db.get_user(form, ['user_name', 'password'])
