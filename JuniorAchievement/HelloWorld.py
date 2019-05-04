@@ -35,7 +35,7 @@ def test():
 
 @app.route('/main')
 def main():
-    return render_template('frontend/map.html')
+    return render_template('map.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
