@@ -32,7 +32,7 @@
 
 
 
-    <form method="POST" id="submitForm" action="http://127.0.0.1:5000/main">
+    <form method="POST" id="submitForm" action="http://127.0.0.1:5000/index">
       <div class="form-group">
           <label for="exampleFormControlSelect2">¿Cúal es tu materia preferida?</label>
           <select class="form-control">
@@ -129,7 +129,7 @@
       $('#sendButton').click( function() {
         console.log('dfsdgdfg');
     $.ajax({
-        url: 'http://127.0.0.1:5000/main',
+        url: 'http://127.0.0.1:5000/index',
         type: 'post',
         dataType: 'json',
         data: $('form#sendForm').serialize(),

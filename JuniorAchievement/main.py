@@ -38,6 +38,11 @@ def main():
     return render_template('map.html')
 
 
+@app.route('/index', methods=['GET', 'POST'])
+def index():
+    return render_template('index.html')
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -59,7 +64,7 @@ def do_the_login():
         #return str(result)
     else:
         return 'Invalid username/password'
-    return redirect('/main')
+    return redirect('/index')
 
 def valid_login(db, form):
     result = db.get_user(form, ['user_name', 'password'])
