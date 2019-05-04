@@ -15,8 +15,9 @@ class DBContext():
             result.update({fields[i]: form[fields[i]]})
         return result
 
-    def get_user(self, user_id, fields=['user_name', 'password', 'name', 'birthdate', 'email']):
-        self.cursor.execute("SELECT "+", ".join(fields)+" FROM user WHERE user_id='{user_id}'".format(user_id=user_id))
+
+    def get_user(self, user_name, password, fields=['user_id', 'user_name', 'password', 'name', 'birthdate', 'email']):
+        self.cursor.execute("SELECT "+", ".join(fields)+" FROM user WHERE user_name='{user_name}' AND password='{password}'".format(user_name=user_name, password=password))
         result=dict()
         res = self.cursor.fetchone()
         if not res:
@@ -24,5 +25,4 @@ class DBContext():
         for i in range(len(fields)):
             result.update({fields[i]: res[i]})
         return result
-
 
