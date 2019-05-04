@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <title>Test Vocacional</title>
+  
+</head>
+
+<body>
+  <div class="mx-auto" style="width: 50%;">
+    <h1>Ahora completemos el test vocacional</h1>
+
+
+
+
+    <form method="POST" id="submitForm" action="http://127.0.0.1:5000/main">
+      <div class="form-group">
+          <label for="exampleFormControlSelect2">¿Cúal es tu materia preferida?</label>
+          <select class="form-control">
+              <option>No sé :/</option>
+              <option>Matemática</option>
+              <option>Geografía</option>
+              <option>Arte</option>
+              <option>Música</option>
+              <option>Educación física</option>
+              <option>Literatura</option>
+              <option>Física</option>
+              <option>Química</option>
+              <option>Biología</option>
+              <option>Tecnología</option>
+              <option>Economía</option>
+              <option>Ninguna :(</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect3">¿Cual es la materia que menos te gusta?</label>
+            <select class="form-control">
+                <option>No sé :/</option>
+                <option>Matemática</option>
+                <option>Geografía</option>
+                <option>Arte</option>
+                <option>Música</option>
+                <option>Educación física</option>
+                <option>Literatura</option>
+                <option>Física</option>
+                <option>Química</option>
+                <option>Biología</option>
+                <option>Tecnología</option>
+                <option>Economía</option>
+                <option>Ninguna :(</option>
+              </select>
+          </div>
+          <label for="exampleFormControlSelect3">¿Cual opción crees que te describe mejor?<br></label>
+
+          <div class="form-group">
+              <label for="exampleFormControlSelect3">1.</label>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="pasion_vs_dinero" id="pasion" value="option1" checked>
+                  <label class="form-check-label" for="pasion_vs_dinero1">
+                    Prefiero hacer lo que me gusta y vivir modestamente.
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="pasion_vs_dinero" id="dinero2" value="option2">
+                  <label class="form-check-label" for="pasion_vs_dinero2">
+                    Priorizo ganar plata haciendo algo que no me apasione.
+                  </label>
+              </div>
+          </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect4">2. </label>    
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="creativo_vs_logico" id="creativo" value="option1" checked>
+                <label class="form-check-label" for="creativo_vs_logico1">
+                  Las personas que me conocen dicen que soy creativo.
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="creativo_vs_logico" id="logico" value="option2">
+                  <label class="form-check-label" for="creativo_vs_logico2">
+                    Las personas que me conocen dicen que tengo un pensamiento más lógico.
+                  </label>
+              </div>
+            </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect5"> 3.</label>      
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="riesgo_vs_seguro" id="riesgo" value="option1" checked>
+                      <label class="form-check-label" for="riesgo_vs_seguro1">
+                        Me gusta tomar riesgos.
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="riesgo_vs_seguro" id="seguro" value="option2">
+                      <label class="form-check-label" for="riesgo_vs_seguro2">
+                        Me gusta trabajar en un ambiente seguro.
+                      </label>
+                    </div>
+                  </div>
+                  <button id="sendButton" type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            
+
+  <script>
+    // Attach a submit handler to the form
+      //  $('#submitForm').submit(function( event ) {
+      //    console.log(event);
+      //   event.preventDefault();
+      // });
+      $('#sendButton').click( function() {
+        console.log('dfsdgdfg');
+    $.ajax({
+        url: 'http://127.0.0.1:5000/main',
+        type: 'post',
+        dataType: 'json',
+        data: $('form#sendForm').serialize(),
+        success: function(data) {      console.log('success');         }
+    });
+});
+      
+  </script>
+
+</body>
+
+</html>
